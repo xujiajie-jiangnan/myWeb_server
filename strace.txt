@@ -1,0 +1,22 @@
+dup(2)                                  = 5
+fcntl(5, F_GETFL)                       = 0x2 (flags O_RDWR)
+fstat(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 7), ...}) = 0
+write(5, "epoll wait error: Interrupted sy"..., 42) = 42
+close(5)                                = 0
+epoll_wait(3, [{EPOLLIN, {u32=4, u64=906137223559118852}}], 5000, -1) = 1
+accept(4, {sa_family=AF_INET, sin_port=htons(36662), sin_addr=inet_addr("127.0.0.1")}, [16]) = 5
+write(1, "127.0.0.1\n", 10)             = 10
+write(1, "36662\n", 6)                  = 6
+fcntl(5, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(5, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+epoll_ctl(3, EPOLL_CTL_ADD, 5, {EPOLLIN|EPOLLONESHOT|EPOLLET, {u32=5, u64=906137223559118853}}) = 0
+accept(4, 0x7ffc3abeaa10, [16])         = -1 EAGAIN (Resource temporarily unavailable)
+epoll_wait(3, [{EPOLLIN, {u32=5, u64=906137223559118853}}], 5000, -1) = 1
+futex(0x55f20cd0d888, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55f20cd0d800, FUTEX_WAKE_PRIVATE, 1) = 1
+epoll_wait(3, [{EPOLLIN, {u32=5, u64=906475546722959365}}], 5000, -1) = 1
+futex(0x55f20cd0d888, FUTEX_WAKE_PRIVATE, 1) = 1
+futex(0x55f20cd0d800, FUTEX_WAKE_PRIVATE, 1) = 1
+epoll_wait(3, 0x630000000400, 5000, -1) = -1 EINTR (Interrupted system call)
+--- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
++++ killed by SIGINT +++
