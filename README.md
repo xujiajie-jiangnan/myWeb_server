@@ -28,7 +28,7 @@
 
 ## 代码统计
 
-![cloc](https://github.com/xujiajie-jiangnan/myWebServer/blob/master/Test_pics/cloc.png)
+![cloc](https://github.com/xujiajie-jiangnan/myWeb_server/blob/master/Test_pics/cloc.png)
 
 
 ## Others
